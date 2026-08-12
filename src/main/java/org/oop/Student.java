@@ -14,6 +14,14 @@ public class Student {
         this.score = score;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
     public float getScore(){
         return score;
     }
