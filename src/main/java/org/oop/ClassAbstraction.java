@@ -37,7 +37,7 @@ class MusicPlayer implements Playable{
     }
 }
 
-public class abstraction {
+public class ClassAbstraction {
     public static void main(String[] args) {
         Circle c = new Circle(4);
         Rectangle r = new Rectangle(5, 10);

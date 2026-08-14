@@ -2,8 +2,8 @@ package org.collection;
 
 import java.util.*;
 
-public class mapTest {
-    public static void priceMenu(Map<String, Integer> map){
+public class MapTest {
+    public static void setPrice(Map<String, Integer> map){
         map.put("ao", 10);
         map.put("quan", 20);
         map.put("vay", 50);
@@ -16,7 +16,7 @@ public class mapTest {
 
     public static void main(String[] args) {
         Map<String, Integer> priceCatalog = new HashMap<>();
-        priceMenu(priceCatalog);
+        setPrice(priceCatalog);
         System.out.println("Bảng giá ");
         for(Map.Entry<String, Integer> entry : priceCatalog.entrySet()){
             System.out.println(entry.getKey() + " : " + entry.getValue());

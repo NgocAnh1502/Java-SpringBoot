@@ -39,11 +39,11 @@ class EvenOddNumber{
     }
 }
 
-public class thread {
+public class MThread {
     public static void main(String[] args) {
-        EvenOddNumber eonumber  = new EvenOddNumber();
-        Thread oodThread = new Thread(() -> eonumber.oddNumber(), "Thread-1");
-        Thread evenThread = new Thread(() -> eonumber.evenNumber(), "Thread-2");
+        EvenOddNumber eoNumber  = new EvenOddNumber();
+        Thread oodThread = new Thread(eoNumber::oddNumber, "Thread-1");
+        Thread evenThread = new Thread(eoNumber::evenNumber, "Thread-2");
 
         oodThread.start();
         evenThread.start();

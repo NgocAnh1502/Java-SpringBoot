@@ -4,11 +4,11 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class KiemTraSo_va_BangCuuChuong {
-    public static int NhapSo(BufferedReader br, String ThongBao){
+public class KiemTraSoVaBangCuuChuong {
+    public static int nhapSo(BufferedReader br, String thongBao){
         while(true) {
             try{
-                System.out.print(ThongBao);
+                System.out.print(thongBao);
                 return Integer.parseInt(br.readLine());
             } catch (NumberFormatException ex){
                 System.out.println("Loi khi nhap so, moi nhap lai");
@@ -29,23 +29,23 @@ public class KiemTraSo_va_BangCuuChuong {
                 System.out.println("+--+----------------------------------+");
                 System.out.println("| 0| Thoat                            +");
                 System.out.println("+--+----------------------------------+");
-                int n = NhapSo(br, "Moi nhap lua chon: ");
-                int a;
-                switch (n) {
+                int luaChon = nhapSo(br, "Moi nhap lua chon: ");
+                int so;
+                switch (luaChon) {
                     case 1:
-                        a = NhapSo(br, "Nhap so can kiem tra: ");
-                        if (a % 2 == 0) {
-                            System.out.println("\n" + a + " la so chan");
+                        so = nhapSo(br, "Nhap so can kiem tra: ");
+                        if (so % 2 == 0) {
+                            System.out.println("\n" + so + " la so chan");
                         } else {
-                            System.out.println("\n" + a + " la so le");
+                            System.out.println("\n" + so + " la so le");
                         }
                         break;
                     case 2:
-                        a =  NhapSo(br, "Moi nhap lua chon: ");
-                        if (a % 3 == 0) {
-                            System.out.println("\n" + a + " chia het cho 3");
+                        so =  nhapSo(br, "Moi nhap lua chon: ");
+                        if (so % 3 == 0) {
+                            System.out.println("\n" + so + " chia het cho 3");
                         } else {
-                            System.out.println("\n" + a + " khong chia het cho 3");
+                            System.out.println("\n" + so + " khong chia het cho 3");
                         }
                         break;
                     case 3:
