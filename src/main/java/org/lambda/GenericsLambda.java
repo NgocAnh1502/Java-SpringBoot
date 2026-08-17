@@ -1,11 +1,10 @@
 package org.lambda;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Generics_Lambda {
+public class GenericsLambda {
     public static <T> void printArray(T[] array){
         if(array == null || array.length == 0){
             System.out.println("Mang rong");
