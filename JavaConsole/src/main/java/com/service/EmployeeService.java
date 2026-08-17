@@ -36,13 +36,14 @@ public class EmployeeService {
     }
 
     public Employee findById(String id){
-        return employees.stream().filter(e -> e.getId().equals(id)).findFirst().orElse(null);
+        return employees.stream().filter(e -> e.getId().equalsIgnoreCase(id)).findFirst().orElse(null);
     }
 
     public void updateEmployee (String id, String name, String mail, String phone, String derpartment,
                                 String type, double salary, LocalDate hireDate, boolean isActive){
         try{
             Employee emp = findById(id);
+            if(emp.getDepartment().equalsIgnoreCase(derpartment)) {
                 emp.setName(name);
                 emp.setEmail(mail);
                 emp.setPhone(phone);
@@ -50,7 +51,14 @@ public class EmployeeService {
                 emp.setType(type);
                 emp.setSalary(salary);
                 emp.setHireDate(hireDate);
-                System.out.println("Cap nhat thong tin thanh cong");
+                emp.setActive(isActive);
+            } else {
+                String newId = this.generateAutoId(derpartment);
+                Employee newEmployee = new Employee(newId, name, mail, phone, derpartment, type, salary, hireDate, isActive);
+                employees.remove(emp);
+                employees.add(newEmployee);
+                System.out.println("Chuyen phong ban thanh cong. Nhan vien da duoc cap nhat ID moi: " + newId);
+            }
         }catch (InvalidFormatException | MinusSalaryException ex){
             System.out.println("Loi: " + ex.getMessage());
         }
@@ -107,10 +115,6 @@ public class EmployeeService {
         System.out.printf("Tong nhan vien: %d | Tong quy luong: %.2f " +
                 "| Luong trung binh: %.2f | Luong cao nhat: %.2f",
                 totalEmployee, totalSalary, averageSalary, maxSalary);
-    }
-
-    public double getTotalSalary(){
-        return employees.stream().mapToDouble(Employee::getSalary).sum();
     }
 
     public void top3Salary(){
@@ -199,7 +203,6 @@ public class EmployeeService {
                         maxId = currentId;
                     }
                 } catch (NumberFormatException ignored) {
-                    // Bỏ qua các ID có đuôi không phải là số hợp lệ
                 }
             }
         }

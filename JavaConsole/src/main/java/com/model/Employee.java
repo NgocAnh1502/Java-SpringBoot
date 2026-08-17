@@ -108,6 +108,6 @@ public class Employee{
 
     public String toCSV(){
         return id + " , " + name + " , " + email + " , " + phone + " , " + department + " , "
-                + type + ", " + salary + " , " + hireDate + " , " + isActive;
+                + type + " , " + salary + " , " + hireDate + " , " + isActive;
     }
 }
